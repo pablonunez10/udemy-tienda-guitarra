@@ -7,9 +7,11 @@ function App() {
     const [cart, setCart] = useState([])
 
     function addToCart (item) {
-        const itemExists = cart.findIndex((guitar) => guitar.id === item.id)
+        const itemExists = cart.findIndex( guitar => guitar.id === item.id)
         if (itemExists >= 0) {
-            console.log('ya existe ...')
+            const updatedCart = [...cart]
+            updatedCart[itemExists].quantify++
+            setCart[updatedCart]
         } else {
             item.quantify = 1
             setCart ([...cart, item])
@@ -20,7 +22,9 @@ function App() {
 
    return (
     <>
-        <Header />
+        <Header 
+            cart = {cart}
+        />
         <main className="container-xl mt-5">
             <h2 className="text-center">Nuestra Colección</h2>
 
