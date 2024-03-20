@@ -2,7 +2,7 @@ import { useMemo } from "react"
 function Header ({cart}) {
     //State Derivado
 
-    const isEmpty =  useMemo( () => cart.length === 0)  
+    const isEmpty =  useMemo( () => cart.length === 0,[])  
     const carTotal = () => cart.reduce((total,item ) => total + (item.quantity * item.price), 0)
 
 
@@ -22,7 +22,7 @@ function Header ({cart}) {
                             <img className="img-fluid" src="./public/img/carrito.png" alt="imagen carrito" />
 
                             <div id="carrito" className="bg-white p-3">
-                                {isEmpty() ? (
+                                {isEmpty ? (
                                     <p className="text-center">El carrito esta vacio</p>
                                 ): (
                                     <>
