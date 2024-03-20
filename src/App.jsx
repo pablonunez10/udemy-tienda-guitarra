@@ -10,10 +10,10 @@ function App() {
         const itemExists = cart.findIndex( guitar => guitar.id === item.id)
         if (itemExists >= 0) {
             const updatedCart = [...cart]
-            updatedCart[itemExists].quantify++
+            updatedCart[itemExists].quantity++
             setCart[updatedCart]
         } else {
-            item.quantify = 1
+            item.quantity = 1
             setCart ([...cart, item])
         }
  
