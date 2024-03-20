@@ -1,7 +1,8 @@
+import { useMemo } from "react"
 function Header ({cart}) {
     //State Derivado
 
-    const isEmpty = () => cart.length === 0  
+    const isEmpty =  useMemo( () => cart.length === 0)  
     const carTotal = () => cart.reduce((total,item ) => total + (item.quantity * item.price), 0)
 
 
